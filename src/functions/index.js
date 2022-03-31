@@ -44,7 +44,17 @@ inicializeStore();
 //colocar items no carrinho
 
 updateCart = () => {
-    console.log(items)
+    let containerCart = document.getElementById('carrinho');
+    containerCart.innerHTML = ""
+    items.map((val) => {
+        if(val.quantity > 0){
+            //atualizar carrinho
+            containerCart.innerHTML+= `
+                <p>`+val.name+` | quantidade: `+val.quantity+`</p>
+                <hr>
+            `;
+        }
+    })
 }
 
 let links = document.getElementsByTagName('a');
